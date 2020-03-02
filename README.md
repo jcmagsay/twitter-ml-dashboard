@@ -24,7 +24,8 @@ Go to http://localhost:8080/
 ### Technology
 
 - Yarn
-- Webpack 2
+- Webpack 4
 - React
-- React Router 4
+- React Router 5
 - SASS
+- D3
