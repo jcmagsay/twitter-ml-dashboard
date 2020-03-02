@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import classNames from 'classnames';
 import routes from 'routes/routes';
-import Nav from 'layout/nav/nav';
+import Nav from 'molecules/nav';
 
 export default class Main extends React.Component {
   constructor(props) {

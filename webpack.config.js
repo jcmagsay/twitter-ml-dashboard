@@ -20,14 +20,16 @@ module.exports = {
       {
         'test': /\.js$/,
         'exclude': [/node_modules/],
-        'use': [{
-          'loader': 'babel-loader',
-          'options': {
-            'presets': [
-              '@babel/preset-env'
-            ]
+        'use': [
+          {
+            'loader': 'babel-loader',
+            'options': {
+              'presets': [
+                '@babel/preset-env'
+              ]
+            }
           }
-        }]
+        ]
       },
       {
         'test': /\.jsx$/,
@@ -52,12 +54,13 @@ module.exports = {
   },
   'resolve': {
     'alias': {
-      'styles': path.resolve(__dirname, './src/assets/styles'),
-      'client': path.resolve(__dirname, './src/client'),
-      'components': path.resolve(__dirname, './src/client/components'),
-      'layout': path.resolve(__dirname, './src/client/layout'),
-      'pages': path.resolve(__dirname, './src/client/pages'),
-      'routes': path.resolve(__dirname, './src/routes')
+      'atoms': path.resolve(__dirname, './src/js/atoms'),
+      'data': path.resolve(__dirname, './data'),
+      'ecosystems': path.resolve(__dirname, './src/js/ecosystems'),
+      'js': path.resolve(__dirname, './src/js/'),
+      'molecules': path.resolve(__dirname, './src/js/molecules'),
+      'routes': path.resolve(__dirname, './src/routes'),
+      'styles': path.resolve(__dirname, './src/assets/styles')
     },
     'extensions': ['.js', '.json', '.jsx', '.scss']
   },
