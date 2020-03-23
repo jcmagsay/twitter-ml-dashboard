@@ -7,6 +7,7 @@ const Radial = (props) => {
   const {
     radius = 100, // TODO: ensure that only certain values can be selected
     percent,
+    text,
   } = props;
 
   const stroke = 10;
@@ -20,12 +21,14 @@ const Radial = (props) => {
       [`radial_${radius}`]: `radial_${radius}`,
     },
   );
+  const viewBoxSize = radius * 2;
+
   return (
     <svg
       className={classes}
       height={radius * 2}
       width={radius * 2}
-      viewBox="0 0 400 400"
+      viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
     >
       <circle
         strokeWidth={ stroke }
@@ -41,10 +44,10 @@ const Radial = (props) => {
         && (
           <text
             className="radial__text"
-            x={50}
-            y={50}
+            x="50%"
+            y="50%"
           >
-            {percent}
+            {text ? text : `${percent}%` }
           </text>
         )
       }

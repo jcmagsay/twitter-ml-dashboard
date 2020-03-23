@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/jcmagsay/twitter-ml-dashboard#readme",
   "dependencies": {
+    "@mdi/font": "^5.0.45",
+    "classname": "^0.0.0",
     "classnames": "^2.2.6",
     "compression": "1.7.4",
     "cross-env": "7.0.0",

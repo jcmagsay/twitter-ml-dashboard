@@ -3,13 +3,15 @@ import { getDisastersData } from '../../functions/getDisastersData';
 import { getUniqueDisastersData } from '../../functions/getUniqueDisastersData';
 import { getTotalDisasters } from '../../functions/getTotalDisasters';
 import Radial from '../../molecules/radial/radial';
+import Icon from '../../atoms/icon/icon';
+import IconTypes from '../../atoms/icon/iconTypes';
 
 //styles
 import './home.scss';
 
 const getTotalDisastersWidget = () => {
   const totalDisasters = getDisastersData();
-  const roundedPercent = Number(totalDisasters.disasters / totalDisasters.tweets * 100).toFixed(2);
+  const roundedPercent = Number(totalDisasters.disasters / totalDisasters.tweets * 100).toFixed(1);
   const disastersText = [
     'Disasters found:',
     totalDisasters.disasters,
@@ -22,7 +24,9 @@ const getTotalDisastersWidget = () => {
 
   return (
     <section>
-      {disastersText}
+      <div>
+        {disastersText}
+      </div>
       <Radial
         percent={roundedPercent}
       />
@@ -45,16 +49,28 @@ const getDisastersTotals = () => {
 
   return (
     <section>
-      <h3>Fire</h3>
+      <h3>
+        <Icon iconType={IconTypes.fire} />
+        Fire
+      </h3>
       <div>{data.totalFire}</div>
 
-      <h3>Flood</h3>
+      <h3>
+        <Icon iconType={IconTypes.water} />
+        Flood
+      </h3>
       <div>{data.totalFlood}</div>
 
-      <h3>Hurricanes</h3>
+      <h3>
+        <Icon iconType={IconTypes.hurricane} />
+        Hurricanes
+      </h3>
       <div>{data.totalHurricane}</div>
 
-      <h3>Tornadoes</h3>
+      <h3>
+        <Icon iconType={IconTypes.tornado} />
+        Tornadoes
+      </h3>
       <div>{data.totalTornado}</div>
     </section>
   );
