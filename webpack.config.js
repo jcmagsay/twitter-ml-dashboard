@@ -53,15 +53,15 @@ module.exports = {
     ]
   },
   'resolve': {
-    'alias': {
-      'atoms': path.resolve(__dirname, './src/js/atoms'),
-      'data': path.resolve(__dirname, './data'),
-      'ecosystems': path.resolve(__dirname, './src/js/ecosystems'),
-      'js': path.resolve(__dirname, './src/js/'),
-      'molecules': path.resolve(__dirname, './src/js/molecules'),
-      'routes': path.resolve(__dirname, './src/routes'),
-      'styles': path.resolve(__dirname, './src/assets/styles')
-    },
+    // 'alias': {
+    //   'atoms': path.resolve(__dirname, 'src/js/atoms'),
+    //   'data': path.resolve(__dirname, 'data'),
+    //   'ecosystems': path.resolve(__dirname, 'src/js/ecosystems'),
+    //   'js': path.resolve(__dirname, 'src/js/'),
+    //   'molecules': path.resolve(__dirname, 'src/js/molecules'),
+    //   'routes': path.resolve(__dirname, 'src/routes'),
+    //   'styles': path.resolve(__dirname, 'src/assets/styles')
+    // },
     'extensions': ['.js', '.json', '.jsx', '.scss']
   },
   'resolveLoader': {

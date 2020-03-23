@@ -1,0 +1,57 @@
+@mixin createRadialAnimate($radius) {
+  $offset: 0;
+  font-size: 16;
+  $keyframe: #{"radialAnimate" + $radius};
+
+  @if ($radius == 50) {
+    $offset: 188;
+  }
+  @if ($radius == 100) {
+    $offset: 502;
+    font-size: 24;
+  }
+  @if ($radius == 200) {
+    $offset: 1131;
+    font-size: 36;
+  }
+
+  @keyframes #{$keyframe} {
+
+    from {
+      stroke-dashoffset: $offset;
+      opacity: 0;
+    }
+  }
+
+  circle {
+    animation: #{$keyframe} 2s ease-in;
+  }
+
+  text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    fill: rgba(0,122,135,1);;
+    stroke: transparent;
+    text-anchor: middle;
+  }
+}
+
+
+.radial {
+
+  fill: transparent;
+  stroke: #007a87;
+
+  &_50 {
+    @include createRadialAnimate(50);
+  }
+
+  &_100 {
+    @include createRadialAnimate(100);
+  }
+
+  &_200 {
+    @include createRadialAnimate(200);
+  }
+
+}

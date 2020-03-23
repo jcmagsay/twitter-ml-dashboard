@@ -1,9 +1,8 @@
-import data from 'data/train.json';
+import data from '../../../data/train';
 
 const getDisastersData = () => {
   const disasters = data.disaster;
   if (disasters) {
-    console.log('inside');
     const filteredDisasters = Object.values(data.disaster).filter((value) => value === 1);
     const totalTweets = Object.values(data.disaster)
 

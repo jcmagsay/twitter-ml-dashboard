@@ -1,5 +1,5 @@
-import Home from 'ecosystems/home';
-import NotFound from 'ecosystems/not-found';
+import Home from 'ecosystems/home/home';
+import NotFound from '../../ecosystems/not-found';
 
 const routes = [
   {
