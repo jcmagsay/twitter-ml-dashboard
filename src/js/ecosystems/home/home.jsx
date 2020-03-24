@@ -7,10 +7,11 @@ import { calculatePercentage } from '../../functions/calculatePercentage.functio
 import { getDisastersData } from '../../functions/getDisastersData';
 import { getUniqueDisastersData } from '../../functions/getUniqueDisastersData';
 import { getTotalDisasters } from '../../functions/getTotalDisasters';
-import Widget from '../../organism/widget/widget';
 import BarChart from '../../molecules/barChart/barChart';
 import Radial from '../../molecules/radial/radial';
+import Stats from '../../organisms/stats/stats';
 import Text from '../../atoms/text/text';
+import Widget from '../../atoms/widget/widget';
 import IconTypes from '../../atoms/icon/iconTypes';
 
 const getData = () => {
@@ -25,40 +26,44 @@ const getData = () => {
   }
 };
 
-const getTotalTweetsWidget = (dataSet) => {
+const getOverviewWidget = (dataSet) => {
   return (
     <section>
-      <Widget
-        header="Overview"
-        iconType={IconTypes.data}
-      >
-        <BarChart data={dataSet} />
-        <br />
-        <Text size={34} centered>
-          {dataSet.disasters}/{dataSet.tweets} recorded disasters
-        </Text>
-      </Widget>
-      <Widget
-        color="yellow"
-        header="Non-Disasters"
-        iconType={IconTypes.nonDisaster}
-      >
-        <Radial
-          percent={
-            calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
-          }
-        />
-      </Widget>
-      <Widget
-        color="red"
-        header="Disasters"
-        iconType={IconTypes.disaster}
-      >
-        <Radial
-          percent={
-            calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
-          }
-        />
+      <Widget>
+        <aside>
+          <Stats
+            color="green"
+            header="Overview"
+            iconType={IconTypes.data}
+          />
+          <BarChart data={dataSet} />
+        </aside>
+        <aside className="widget_flex">
+          <div>
+            <Stats
+              color="yellow"
+              header="Non-Disasters"
+              iconType={IconTypes.nonDisaster}
+            />
+            <Radial
+              percent={
+                calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
+              }
+            />
+          </div>
+          <div>
+            <Stats
+              color="red"
+              header="Disasters"
+              iconType={IconTypes.disaster}
+            />
+            <Radial
+              percent={
+                calculatePercentage(dataSet.disasters, dataSet.tweets)
+              }
+            />
+          </div>
+        </aside>
       </Widget>
     </section>
   );
@@ -67,10 +72,11 @@ const getTotalTweetsWidget = (dataSet) => {
 const getUniqueDisastersText = () => {
   const uniqueDisastersData = getUniqueDisastersData();
   const disasterArray = new Array();
+
   for (let disaster of uniqueDisastersData.uniqueDisasters) {
     disasterArray.push(disaster);
   }
-  console.log({ uniqueDisastersData })
+
   return disasterArray.join(" ");
 };
 
@@ -83,42 +89,49 @@ const getDisastersTotals = () => {
 
   return (
     <section>
-      <Widget
-        color="orange"
-        header="Fires"
-        iconType={IconTypes.fire}
-      >
-        <Radial
-          percent={roundedFires}
-        />
-      </Widget>
-      <Widget
-        color="blue"
-        header="Floods"
-        iconType={IconTypes.water}
-      >
-        <Radial
-          percent={roundedFloods}
-        />
-      </Widget>
-        percent={roundedFloods}
-      />
-      <Widget
-        color="purple"
-        header="Hurricanes"
-        iconType={IconTypes.hurricane}
-      >
-        <Radial
-          percent={roundedHurricanes}
-        />
-      </Widget>
-      <Widget
-        header="Tornadoes"
-        iconType={IconTypes.tornado}
-      >
-        <Radial
-          percent={roundedTornadoes}
-        />
+      <Widget>
+        <aside className="widget_flex">
+          <div>
+            <Stats
+              color="orange"
+              header="Fires"
+              iconType={IconTypes.fire}
+            />
+            <Radial
+              percent={roundedFires}
+            />
+          </div>
+          <div>
+            <Stats
+              color="blue"
+              header="Floods"
+              iconType={IconTypes.water}
+            />
+            <Radial
+              percent={roundedFloods}
+            />
+          </div>
+          <div>
+            <Stats
+              color="purple"
+              header="Hurricanes"
+              iconType={IconTypes.hurricane}
+            />
+            <Radial
+              percent={roundedHurricanes}
+            />
+          </div>
+          <div>
+            <Stats
+              color
+              header="Tornadoes"
+              iconType={IconTypes.tornado}
+            />
+            <Radial
+              percent={roundedTornadoes}
+            />
+          </div>
+        </aside>
       </Widget>
     </section>
   );
@@ -131,8 +144,11 @@ const Home = () => {
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
-      <h2>{getTotalTweetsWidget(dataSet)}</h2>
-      <h2>{getUniqueDisastersText()}</h2>
+      {getOverviewWidget(dataSet)}
+      <Widget>
+        There is currently an anomaly with the data, specifically tornadoes.
+        <h2>{getUniqueDisastersText()}</h2>
+      </Widget>
       <section>
         {getDisastersTotals()}
       </section>

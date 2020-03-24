@@ -23,11 +23,24 @@ const BarChart = (props) => {
   } = props;
 
   const chartData = generateData(data);
-  console.log({chartData})
+
   return (
     <Bar
       data={chartData}
-      width={400}
+      colorSchema={[
+        '#B15DFF',
+        '#1EB980',
+        '#045D56',
+        '#FF6859',
+        '#FFCF44',
+        '#DF0000',
+        '#72DEFF',
+      ]}
+      enableLabels
+      labelsNumberFormat="1"
+      isAnimated
+      height={200}
+      width={600}
       isHorizontal={true}
       margin={({
         bottom: 20,

@@ -1,11 +1,10 @@
-import React, { Fragment, Children } from 'react';
+import React from 'react';
 import Icon from '../../atoms/icon/icon';
-import Radial from '../../molecules/radial/radial';
 import Text from '../../atoms/text/text';
 
-import "./widget.scss"
+import "./stats.scss"
 
-const Widget = (props) => {
+const Stats = (props) => {
   const {
     children,
     color,
@@ -13,10 +12,9 @@ const Widget = (props) => {
     iconType,
   } = props;
 
-  const Chart = () => chart;
 
   return (
-    <article className="widget">
+    <div className="stats">
       <Text
         size={24}
         centered
@@ -32,8 +30,8 @@ const Widget = (props) => {
         <Icon iconType={iconType} />
       </Text>
       {children}
-    </article>
+    </div>
   );
 };
 
-export default Widget;
+export default Stats;

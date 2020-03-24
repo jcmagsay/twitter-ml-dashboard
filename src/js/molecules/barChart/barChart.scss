@@ -17,4 +17,10 @@
   .tick text {
     transform: translateX(-1.5rem)
   }
+
+  .percentage-label-group text {
+    fill: rgba(255, 255, 255, 0.9);
+    stroke: transparent;
+    transform: translateX(-3.7rem);
+  }
 }
