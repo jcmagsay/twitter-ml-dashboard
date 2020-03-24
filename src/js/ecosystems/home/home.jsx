@@ -85,25 +85,39 @@ const getDisastersTotals = () => {
         color="orange"
         header="Fires"
         iconType={IconTypes.fire}
-        percent={roundedFires}
-      />
+      >
+        <Radial
+          percent={roundedFires}
+        />
+      </Widget>
       <Widget
         color="blue"
         header="Floods"
         iconType={IconTypes.water}
+      >
+        <Radial
+          percent={roundedFloods}
+        />
+      </Widget>
         percent={roundedFloods}
       />
       <Widget
         color="purple"
         header="Hurricanes"
         iconType={IconTypes.hurricane}
-        percent={roundedHurricanes}
-      />
+      >
+        <Radial
+          percent={roundedHurricanes}
+        />
+      </Widget>
       <Widget
         header="Tornadoes"
         iconType={IconTypes.tornado}
-        percent={roundedTornadoes}
-      />
+      >
+        <Radial
+          percent={roundedTornadoes}
+        />
+      </Widget>
     </section>
   );
 };
