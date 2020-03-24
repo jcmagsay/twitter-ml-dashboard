@@ -1,5 +1,5 @@
 //styles
-import './home.scss';
+// import './home.scss';
 
 // modules/components
 import React, { Fragment } from 'react';

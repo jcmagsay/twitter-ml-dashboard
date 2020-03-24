@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import './radial.scss';
+import * as styles from './radial.scss';
 
 const Radial = (props) => {
 
@@ -22,6 +22,9 @@ const Radial = (props) => {
     },
   );
   const viewBoxSize = radius * 2;
+
+  // TODO: make this better
+  <style>{styles}</style>
 
   return (
     <svg

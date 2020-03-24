@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from "./widget.scss"
+import * as styles from "./widget.scss"
 
 const Widget = (props) => {
   const {

@@ -24,6 +24,7 @@ const BarChart = (props) => {
 
   const chartData = generateData(data);
 
+  // TODO: make this better
   <style>{styles}</style>
 
   return (

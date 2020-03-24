@@ -2,8 +2,6 @@ import React from 'react';
 import Icon from '../../atoms/icon/icon';
 import Text from '../../atoms/text/text';
 
-import "./stats"
-
 const Stats = (props) => {
   const {
     children,
