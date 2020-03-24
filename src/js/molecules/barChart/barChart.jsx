@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'britecharts-react';
 
-import './barchart.scss';
+import * as styles from './barchart.scss';
 
 const generateData = (data) => {
   const {
@@ -23,6 +23,8 @@ const BarChart = (props) => {
   } = props;
 
   const chartData = generateData(data);
+
+  <style>{styles}</style>
 
   return (
     <Bar
