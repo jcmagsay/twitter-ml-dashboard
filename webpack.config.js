@@ -54,9 +54,11 @@ module.exports = {
         'test': /\.(sass|scss|css)$/,
         'exclude': [/node_modules/],
         'use': [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          // Creates `style` nodes from JS strings
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production'
+            // Creates `style` nodes from JS strings
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS

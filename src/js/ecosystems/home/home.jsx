@@ -1,5 +1,5 @@
 //styles
-// import './home.scss';
+import './scss/home';
 
 // modules/components
 import React, { Fragment } from 'react';
@@ -136,8 +136,6 @@ const getDisastersTotals = () => {
     </section>
   );
 };
-
-// TODO: Make some false positive charts
 
 const Home = () => {
   const dataSet = getData();

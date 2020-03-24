@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 
-import * as styles from './text.scss';
+import './scss/text';
 
 const Text = (props) => {
   const {
@@ -30,9 +30,6 @@ const Text = (props) => {
     },
     className,
   ]);
-
-  // TODO: make this better
-  <style>{styles}</style>
 
   return (
     <TagVariant className={textClasses}>

@@ -1,14 +1,11 @@
 import React from 'react';
 
-import * as styles from "./widget.scss"
+import "./scss/widget"
 
 const Widget = (props) => {
   const {
     children,
   } = props;
-
-  // TODO: MAKE THIS BETTER!
-  <style>{styles}</style>
 
   return (
     <article className="widget">
