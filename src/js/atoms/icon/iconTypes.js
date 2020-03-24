@@ -1,4 +1,5 @@
 const IconTypes = {
+  data: 'poll',
   disaster: 'emoticon-sad-outline',
   fire: 'fire',
   hurricane: 'weather-hurricane',

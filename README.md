@@ -28,4 +28,4 @@ Go to http://localhost:8080/
 - React
 - React Router 5
 - SASS
-- D3
+- Britecharts React
