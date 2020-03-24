@@ -29,12 +29,14 @@ const getTotalTweetsWidget = (dataSet) => {
   return (
     <section>
       <Widget
-      header="Overview"
+        header="Overview"
+        iconType={IconTypes.data}
       >
+        <BarChart data={dataSet} />
+        <br />
         <Text size={34} centered>
-          {dataSet.disasters}/{dataSet.tweets}
+          {dataSet.disasters}/{dataSet.tweets} recorded disasters
         </Text>
-        <BarChart data={dataSet} iconType={IconTypes.data} />
       </Widget>
       <Widget
         color="yellow"
@@ -128,7 +130,7 @@ const Home = () => {
   const dataSet = getData();
   return (
     <Fragment>
-      <h1>Twitter ML Dashboard</h1>
+      <Text size="34" tag="h1">Twitter ML Dashboard</Text>
       <h2>{getTotalTweetsWidget(dataSet)}</h2>
       <h2>{getUniqueDisastersText()}</h2>
       <section>
