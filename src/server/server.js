@@ -15,6 +15,8 @@ if (!process.env.NODE_ENV) {
   });
 }
 
+console.log("INSIDE")
+
 var env = {
   'development': process.env.NODE_ENV === 'development',
   'production': process.env.NODE_ENV === 'production'
