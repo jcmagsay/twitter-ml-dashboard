@@ -1,8 +1,5 @@
-var fs = require('fs');
-var path = require('path');
 var express = require('express');
 var app = express();
-var compress = require('compression');
 var port = Number(process.env.PORT || 3001);
 var dotenv = require('dotenv');
 var auth = require('http-auth');
@@ -14,8 +11,6 @@ if (!process.env.NODE_ENV) {
     'path': './.env'
   });
 }
-
-console.log("INSIDE")
 
 var env = {
   'development': process.env.NODE_ENV === 'development',
@@ -50,6 +45,7 @@ app.get('*', function(req, res) {
 
 app.listen(port, function(err) {
   if (err) {
-    console.log(err);
+    console.error(err);
   }
+  console.log("Listening on port: ", port)
 });
