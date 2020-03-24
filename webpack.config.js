@@ -11,9 +11,10 @@ module.exports = {
   'devtool': 'source-map',
   'entry': './src/index.js',
   'output': {
-    'path': path.resolve('public/assets'),
+    'filename': 'bundle.js',
+    'chunkFilename': '[name].bundle.js'
     'publicPath': process.env.NODE_ENV === 'production' ? '/assets/' : '/',
-    'filename': 'bundle.js'
+    'path': path.resolve('public/assets'),
   },
   'module': {
     'rules': [
@@ -69,5 +70,5 @@ module.exports = {
   ],
   'devServer': {
     'historyApiFallback': true
-  }
+  },
 }
