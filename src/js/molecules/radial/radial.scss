@@ -21,16 +21,21 @@
       stroke-dashoffset: $offset;
       opacity: 0;
     }
+
   }
 
-  circle {
+  .radial__bg {
     animation: #{$keyframe} 2s ease-in;
+  }
+
+  .radial__fg {
+    stroke: #045D56;
   }
 
   text {
     font-family: Arial, Helvetica, sans-serif;
     font-size: #{$fontSize}px;
-    fill: rgba(0,122,135,1);;
+    fill: #1EB980;
     stroke: transparent;
     text-anchor: middle;
   }
@@ -38,9 +43,10 @@
 
 
 .radial {
-
+  display: block;
   fill: transparent;
-  stroke: #007a87;
+  margin: auto;
+  stroke: #1EB980;
 
   &_50 {
     @include createRadialAnimate(50);

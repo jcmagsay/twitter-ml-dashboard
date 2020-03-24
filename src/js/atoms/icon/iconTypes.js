@@ -1,8 +1,10 @@
 const IconTypes = {
+  disaster: 'emoticon-sad-outline',
   fire: 'fire',
-  water: 'water',
-  tornado: 'weather-tornado',
   hurricane: 'weather-hurricane',
+  nonDisaster: 'emoticon-happy-outline',
+  tornado: 'weather-tornado',
+  water: 'water',
 };
 
 export default IconTypes;

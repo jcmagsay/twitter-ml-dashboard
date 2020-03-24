@@ -1,0 +1,9 @@
+/*----------------------------------------------------------------------
+ BREAKPOINT FUNCTION DECLARATIONS
+------------------------------------------------------------------------ */
+
+@mixin breakpoint($resolution) {
+  @media only screen and (min-width: $resolution) {
+    @content;
+  }
+}

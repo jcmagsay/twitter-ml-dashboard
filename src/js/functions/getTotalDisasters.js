@@ -11,6 +11,7 @@ const getTotalDisasters = () => {
     let totalFlood = 0;
     let totalHurricane = 0;
     let totalTornado = 0;
+    let nonDisasters = 0;
 
     disasterValues.forEach((value) => {
       switch (value) {
@@ -26,11 +27,15 @@ const getTotalDisasters = () => {
         case DISASTER_TYPE.TORNADO:
           totalTornado++;
           break;
+        default:
+          nonDisasters++;
+          break;
       }
     });
 
     return {
-      totalDisasters: disasterValues.length,
+      nonDisasters,
+      totalTweets: disasterValues.length,
       totalFire,
       totalFlood,
       totalHurricane,

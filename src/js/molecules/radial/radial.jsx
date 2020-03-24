@@ -26,11 +26,22 @@ const Radial = (props) => {
   return (
     <svg
       className={classes}
-      height={radius * 2}
-      width={radius * 2}
+      height={viewBoxSize}
+      width={viewBoxSize}
       viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
     >
       <circle
+        className="radial__fg"
+        strokeWidth={stroke}
+        strokeDasharray={`${circumference} ${circumference}`}
+        strokeDashoffset={0}
+        strokeWidth={stroke}
+        r={normalizedRadius}
+        cx={radius}
+        cy={radius}
+      />
+      <circle
+        className="radial__bg"
         strokeWidth={ stroke }
         strokeDasharray={ `${circumference} ${circumference}` }
         style={ { strokeDashoffset } }
