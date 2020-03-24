@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "heroku-postbuild": "yarn build",
+    "heroku-postbuild": "node build",
     "start:dev": "webpack-dev-server --port 8080 --hot --host 0.0.0.0",
-    "start": "yarn src/server/server.js"
+    "start": "node src/server/server.js"
   },
   "repository": {
     "type": "git",
