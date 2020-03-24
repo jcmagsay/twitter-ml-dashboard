@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 
-import './scss/text';
+require('./scss/text.scss');
 
 const Text = (props) => {
   const {

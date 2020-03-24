@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import './scss/radial';
+
+require('./scss/radial');
 
 const Radial = (props) => {
 

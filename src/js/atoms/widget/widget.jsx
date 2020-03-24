@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./scss/widget"
+require('./scss/widget.scss');
 
 const Widget = (props) => {
   const {

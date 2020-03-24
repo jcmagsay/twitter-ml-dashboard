@@ -2,9 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './js/main.jsx';
 
-import './css/index.scss';
-import './css/app.scss';
+require('./css/index.scss');
+require('./css/app.scss');
 
 render(
-  <App />, document.getElementById('app')
+  <App />,
+  document.getElementById('app'),
 );

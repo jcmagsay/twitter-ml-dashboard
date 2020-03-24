@@ -30,6 +30,16 @@ module.exports = {
   'module': {
     'rules': [
       {
+        'test': /\.(html)$/,
+        'exclude': /node_modules/,
+        'use': {
+          'loader': 'html-loader',
+          'options': {
+            'minimize': true
+          }
+        }
+      },
+      {
         'test': /\.js$/,
         'exclude': [/node_modules/],
         'use': [
@@ -44,9 +54,9 @@ module.exports = {
         ]
       },
       {
-        'test': /\.jsx$/,
+        'test': /\.(js|jsx)$/,
         'use': [{
-          'loader': 'babel'
+          'loader': 'babel-loader'
         }],
         'exclude': /node_modules/
       },
@@ -54,20 +64,42 @@ module.exports = {
         'test': /\.(sass|scss|css)$/,
         'exclude': [/node_modules/],
         'use': [
-          // fallback to style-loader in development
-          process.env.NODE_ENV !== 'production'
-            // Creates `style` nodes from JS strings
-            ? 'style-loader'
-            : MiniCssExtractPlugin.loader,
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',        ]
+          // // fallback to style-loader in development
+          // process.env.NODE_ENV !== 'production'
+          //   // Creates `style` nodes from JS strings
+          //   ? 'style-loader'
+          //   : MiniCssExtractPlugin.loader,
+          // // Translates CSS into CommonJS
+          // {
+          //   loader: 'css-loader',
+          //   options: {
+          //     modules: true,
+          //     sourceMap: true,
+          //     importLoaders: 1,
+          //   }
+          // },
+          // // Compiles Sass to CSS
+          // 'sass-loader',
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: true,
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            }
+          }
+        ]
       }
     ]
   },
   'resolve': {
-    'extensions': ['.js', '.json', '.jsx', '.scss']
+    'extensions': [ '*', '.js', '.json', '.jsx', '.scss']
   },
   'resolveLoader': {
     'moduleExtensions': ['-loader']
@@ -86,7 +118,9 @@ module.exports = {
     }),
   ],
   'devServer': {
-    'historyApiFallback': true
+    'historyApiFallback': true,
+    'hot': true,
+    'port': 8080,
   },
   'optimization': {
     'splitChunks': {

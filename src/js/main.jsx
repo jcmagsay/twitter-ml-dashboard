@@ -32,7 +32,6 @@ export default class Main extends React.Component {
             </Switch>
           </main>
           <footer>
-            Footer
           </footer>
         </div>
       </Router>
