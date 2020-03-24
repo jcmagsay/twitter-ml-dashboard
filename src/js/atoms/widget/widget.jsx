@@ -1,13 +1,14 @@
 import React from 'react';
 
-import "./widget.scss"
+import styles from "./widget.scss"
 
 const Widget = (props) => {
   const {
     children,
   } = props;
 
-  const Chart = () => chart;
+  // TODO: MAKE THIS BETTER!
+  <style>{styles}</style>
 
   return (
     <article className="widget">
