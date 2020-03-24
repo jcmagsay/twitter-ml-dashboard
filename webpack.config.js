@@ -6,13 +6,24 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+function recursiveIssuer(m) {
+  if (m.issuer) {
+    return recursiveIssuer(m.issuer);
+  } else if (m.name) {
+    return m.name;
+  } else {
+    return false;
+  }
+}
 
 module.exports = {
   'devtool': 'source-map',
   'entry': './src/index.js',
   'output': {
     'filename': 'bundle.js',
-    'chunkFilename': '[name].bundle.js'
+    'chunkFilename': '[name].bundle.js',
     'publicPath': process.env.NODE_ENV === 'production' ? '/assets/' : '/',
     'path': path.resolve('public/assets'),
   },
@@ -40,16 +51,16 @@ module.exports = {
         'exclude': /node_modules/
       },
       {
-        'test': /\.(sass|scss)$/,
+        'test': /\.(sass|scss|css)$/,
         'exclude': [/node_modules/],
         'use': [
-          // Creates `style` nodes from JS strings
           'style-loader',
+          MiniCssExtractPlugin.loader,
+          // Creates `style` nodes from JS strings
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
-        ]
+          'sass-loader',        ]
       }
     ]
   },
@@ -66,9 +77,33 @@ module.exports = {
         'postcss': [
         ]
       }
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    }),
   ],
   'devServer': {
     'historyApiFallback': true
   },
+  'optimization': {
+    'splitChunks': {
+      'cacheGroups': {
+        'fooStyles': {
+          'name': 'foo',
+            'test': (m, c, entry = 'foo') =>
+              m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+              'chunks': 'all',
+                'enforce': true,
+        },
+        'barStyles': {
+          'name': 'bar',
+          'test': (m, c, entry = 'bar') =>
+              m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+          'chunks': 'all',
+          'enforce': true,
+        },
+      },
+    },
+  }
 }
