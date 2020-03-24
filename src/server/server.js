@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var port = Number(process.env.PORT || 3001);
 var dotenv = require('dotenv');
-var auth = require('http-auth');
+var basicAuth = require('express-basic-auth');
 var compression = require('compression');
 
 if (!process.env.NODE_ENV) {
@@ -29,12 +29,12 @@ if (process.env.COMPRESSION_ENABLED === 'true') {
 if (process.env.IS_PASSWORD_PROTECTED === 'true') {
   const envUser = process.env.ENV_USER;
   const envPassword = process.env.ENV_PASSWORD;
-  const basic = auth.basic({
-    'realm': 'Protected'
-  }, (username, password, callback) => {
-    callback(username === envUser && password === envPassword);
-  });
-  app.use(auth.connect(basic));
+
+  app.use(basicAuth({
+    users: {
+      [envUser]: envPassword
+    },
+  }));
 }
 
 app.get('*', function(req, res) {

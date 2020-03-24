@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../../atoms/icon/icon';
 import Text from '../../atoms/text/text';
 
-import "./stats.scss"
+import "./stats"
 
 const Stats = (props) => {
   const {
