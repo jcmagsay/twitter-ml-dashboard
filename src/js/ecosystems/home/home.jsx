@@ -137,8 +137,23 @@ const getDisastersTotals = () => {
   );
 };
 
-const Home = () => {
+// const afterLoad = (callback, data) => {
+//   callback(data);
+// }
+
+const Home = (props) => {
   const dataSet = getData();
+
+  // console.log({props});
+
+  // afterLoad(
+  //   props.setViewport,
+  //   {
+  //     type: "UPDATE",
+  //     payload: visualViewport,
+  //   },
+  // );
+
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
