@@ -28,7 +28,7 @@ switch (ENV) {
         module.exports = require('./dev.config');
         break;
     case 'production':
-        module.exports = merge(require('./prod.config'), common);
+        module.exports = require('./prod.config');
         break;
     default:
         console.log('Target configuration not found. Valid targets: "development" or "production".');
