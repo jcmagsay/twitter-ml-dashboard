@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
+import cc from 'classcat';
 
 require('./scss/text.scss');
 
@@ -18,7 +18,7 @@ const Text = (props) => {
 
   const TagVariant = tag || 'div';
 
-  const textClasses = cx([
+  const textClasses = cc([
     'text',
     {
       [`text_${align}`]: align,

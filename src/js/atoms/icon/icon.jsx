@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import cx from 'classnames';
+import cc from 'classcat';
 
 const Icon = (props) => {
   const {
@@ -10,12 +10,12 @@ const Icon = (props) => {
     console.error(`Error! Icon is not defined for iconType: ${iconType}`);
   }
 
-  const classes = cx(
+  const classes = cc([
     'mdi',
     {
       [`mdi-${iconType}`]: iconType,
     },
-  );
+  ]);
 
   return (
     <i className={classes} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
+import cc from 'classcat';
 
 require('./scss/radial');
 
@@ -16,12 +16,12 @@ const Radial = (props) => {
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - percent / 100 * circumference;
 
-  const classes = cx(
+  const classes = cc([
     'radial',
     {
       [`radial_${radius}`]: `radial_${radius}`,
     },
-  );
+  ]);
   const viewBoxSize = radius * 2;
 
   return (

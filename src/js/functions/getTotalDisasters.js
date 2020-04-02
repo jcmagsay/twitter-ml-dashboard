@@ -1,5 +1,6 @@
-import data from '../../../data/train';
 import { DISASTER_TYPE } from '../../enums/disasterType.enum';
+
+import data from '../../../data/train.json';
 
 const getTotalDisasters = () => {
   const disasterTypes = data.disaster_type;

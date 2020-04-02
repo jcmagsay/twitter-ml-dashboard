@@ -1,4 +1,4 @@
-import data from '../../../data/train';
+import data from '../../../data/train.json';
 
 const getDisastersData = () => {
   const disasters = data.disaster;

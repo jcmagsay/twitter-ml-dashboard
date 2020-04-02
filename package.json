@@ -2,17 +2,33 @@
   "name": "twitter-ml-dashboard",
   "version": "1.0.0",
   "description": "Natural Language Processing as visualizations",
-  "main": "index.js",
   "engines": {
     "node": ">10",
     "zlib": "^1.2.8",
     "yarn": "^1.22.0"
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack -p --mode production",
+    "build": "better-npm-run build",
     "heroku-postbuild": "yarn build",
-    "start:dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js --mode development",
+    "start:dev": "better-npm-run start:dev",
     "start": "node src/server/server.js"
+  },
+  "betterScripts": {
+    "start:dev": {
+      "command2": "webpack-dashboard -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --https",
+      "command": "./node_modules/.bin/webpack-dev-server --config ./webpack.config.js",
+      "env": {
+        "NODE_ENV": "development",
+        "BABEL_ENV": "development"
+      }
+    },
+    "build": {
+      "command": "./node_modules/.bin/webpack -p",
+      "env": {
+        "NODE_ENV": "production",
+        "BABEL_ENV": "production"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -26,32 +42,53 @@
   "homepage": "https://github.com/jcmagsay/twitter-ml-dashboard#readme",
   "dependencies": {
     "@mdi/font": "^5.0.45",
+    "babel-polyfill": "^6.26.0",
     "britecharts-react": "^0.5.3",
+    "classcat": "^4.0.2",
     "classname": "^0.0.0",
-    "classnames": "^2.2.6",
     "compression": "1.7.4",
+    "compression-webpack-plugin": "^3.1.0",
     "cross-env": "7.0.0",
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "ejs": "3.0.1",
     "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "express-basic-auth": "^1.2.0",
     "express-ejs-layouts": "2.5.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "5.1.0",
     "html-loader": "^1.0.0",
     "html-webpack-plugin": "^4.0.1",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "less-plugin-rewrite-import": "^0.1.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "offline-plugin": "^5.0.7",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "0.12.7",
+    "path-to-regexp": "^6.1.0",
     "postcss-loader": "3.0.0",
+    "prop-types": "^15.7.2",
+    "raw-loader": "^4.0.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "react-hot-loader": "next",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
+    "resolve-url-loader": "^3.1.1",
     "sass-loader": "^8.0.2",
     "style-loader": "1.1.3",
+    "terser-webpack-plugin": "^2.3.5",
     "url-loader": "3.0.0",
     "webpack": "^4.41.6",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-bundle-tracker": "^0.4.3",
+    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "3.10.3",
     "webpack-merge": "^4.2.2"
   },
@@ -66,6 +103,7 @@
     "@babel/runtime": "^7.9.2",
     "babel-eslint": "10.1.0",
     "babel-loader": "^8.0.6",
+    "better-npm-run": "^0.1.1",
     "eslint": "6.8.0",
     "json-loader": "^0.5.7",
     "webpack-cli": "^3.3.11"

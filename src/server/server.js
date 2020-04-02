@@ -38,7 +38,6 @@ if (process.env.IS_PASSWORD_PROTECTED === 'true') {
 }
 
 app.get('*', function(req, res) {
-  console.log(req)
   res.render('index', {
     'env': env
   });

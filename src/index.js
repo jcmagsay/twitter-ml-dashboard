@@ -1,11 +1,22 @@
+import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './js/main.jsx';
 
-require('./css/index.scss');
-require('./css/app.scss');
+import './css/index.scss';
+import './css/app.scss';
+
+const root = document.getElementById('root');
 
 render(
   <App />,
-  document.getElementById('app'),
+  root,
 );
+
+if (process.env.NODE_ENV === 'production') {
+  require('offline-plugin/runtime').install({
+    onUpdateReady() {
+      require('offline-plugin/runtime').applyUpdate();
+    },
+  });
+}

@@ -18,7 +18,7 @@ Save `.env.defaults` file as `.env`
 ```
 ##### Run the App in your browser
 ```
-Go to http://localhost:8080/
+Go to http://localhost:3000/
 ```
 
 ### Technology
