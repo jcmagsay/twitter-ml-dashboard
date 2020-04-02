@@ -36,7 +36,7 @@ const Overview = (props) => {
   return (
     <LazyLoad
       tag="section"
-      hidden={visibility}
+      hidden={false}
       ref={(el) => component = el}>
     >
       <Widget>
