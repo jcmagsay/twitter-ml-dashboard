@@ -13,6 +13,7 @@ import Stats from '../../organisms/stats/stats';
 import Text from '../../atoms/text/text';
 import Widget from '../../atoms/widget/widget';
 import IconTypes from '../../atoms/icon/iconTypes';
+import LazyLoad from '../../atoms/lazyLoad/lazyLoad';
 
 const getData = () => {
   const data = getDisastersData();
@@ -26,9 +27,9 @@ const getData = () => {
   }
 };
 
-const getOverviewWidget = (dataSet) => {
+const getOverviewWidget = (props, dataSet) => {
   return (
-    <section>
+    <LazyLoad tag="section">
       <Widget>
         <aside>
           <Stats
@@ -65,7 +66,7 @@ const getOverviewWidget = (dataSet) => {
           </div>
         </aside>
       </Widget>
-    </section>
+    </LazyLoad>
   );
 };
 
@@ -137,27 +138,15 @@ const getDisastersTotals = () => {
   );
 };
 
-// const afterLoad = (callback, data) => {
-//   callback(data);
-// }
-
 const Home = (props) => {
   const dataSet = getData();
 
-  // console.log({props});
-
-  // afterLoad(
-  //   props.setViewport,
-  //   {
-  //     type: "UPDATE",
-  //     payload: visualViewport,
-  //   },
-  // );
+  console.log("HOME COMPONENT", { props });
 
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
-      {getOverviewWidget(dataSet)}
+      {getOverviewWidget(props, dataSet)}
       <Widget>
         There is currently an anomaly with the data, specifically tornadoes.
         <h2>{getUniqueDisastersText()}</h2>

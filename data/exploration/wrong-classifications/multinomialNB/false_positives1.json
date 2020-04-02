@@ -1,1 +1,14 @@
-{"tweet_id":{"0":22561},"tweet_text":{"0":"A powerful storm will impact the area, Wed afternoon into Thurs. Strong wind and rain expected.  #RIwx https:\/\/t.co\/yb0wwQAXuU"},"actual_label":{"0":0},"prediction_label":{"0":1}}
+{
+    "tweet_id": {
+        "0": 22561
+    },
+    "tweet_text": {
+        "0": "A powerful storm will impact the area, Wed afternoon into Thurs. Strong wind and rain expected.  #RIwx https://t.co/yb0wwQAXuU"
+    },
+    "actual_label": {
+        "0": 0
+    },
+    "prediction_label": {
+        "0": 1
+    }
+}

@@ -1,0 +1,9 @@
+@import '../../../css/utilities.scss';
+
+.lazyLoad {
+
+  &_hidden {
+    @include hidden;
+  }
+
+}
