@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 
 // modules/components
-import { calculatePercentage } from '../../../functions/calculatePercentage.function';
-import BarChart from '../../../molecules/barChart/barChart';
-import Radial from '../../../molecules/radial/radial';
-import Stats from '../../../organisms/stats/stats';
-import Widget from '../../../atoms/widget/widget';
-import IconTypes from '../../../atoms/icon/iconTypes';
-import LazyLoad from '../../../atoms/lazyLoad/lazyLoad';
+import { calculatePercentage } from '../../../../functions/calculatePercentage.function';
+import BarChart from '../../../../molecules/barChart/barChart';
+import Radial from '../../../../molecules/radial/radial';
+import Stats from '../../../../organisms/stats/stats';
+import Widget from '../../../../atoms/widget/widget';
+import IconTypes from '../../../../atoms/icon/iconTypes';
+import LazyLoad from '../../../../atoms/lazyLoad/lazyLoad';
 
 const isInViewport = (component, offset = 0) => {
   if (!component) return false;

@@ -1,6 +1,3 @@
-//styles
-require('./scss/home.scss');
-
 // npm packages
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux'
@@ -17,8 +14,12 @@ import Widget from '../../atoms/widget/widget';
 import IconTypes from '../../atoms/icon/iconTypes';
 
 // partials
-import Overview from './partial/overview';
+import Overview from './partial/overview/overview';
 import WordCloud from './partial/wordcloud/wordcloud';
+import DonutWidget from './partial/donutWidget/donutWidget';
+
+//styles
+require('./home.scss');
 
 const getData = () => {
   const data = getDisastersData();
@@ -117,8 +118,12 @@ const Home = (props) => {
         callback={updateVisibility}
         {...props}
       />
+      <DonutWidget/>
       <Widget>
-        There is currently an anomaly with the data, specifically tornadoes.
+        <Text size="24" tag="h2">Anomalies</Text>
+        <Text size="14" tag="h4">
+          There is currently an anomaly with the data, specifically tornadoes.
+        </Text>
         <h2>{getUniqueDisastersText()}</h2>
       </Widget>
       <section>

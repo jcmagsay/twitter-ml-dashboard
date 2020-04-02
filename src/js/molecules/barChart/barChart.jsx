@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Bar } from 'britecharts-react';
 
 require('./barChart.scss');
@@ -52,4 +52,8 @@ const BarChart = (props) => {
   );
 };
 
-export default BarChart;
+const arePropsEqual = (prevProps, nextProps) => {
+  return JSON.stringify(prevProps) === JSON.stringify(nextProps);
+};
+
+export default memo(BarChart, arePropsEqual);
