@@ -23,21 +23,10 @@ const Overview = (props) => {
     callback,
   } = props;
 
-  let component;
-
-  useEffect(() => {
-    console.log("OVERVIEW");
-    const blah = isInViewport(component)
-
-    // callback(visibility);
-    callback(isInViewport(component));
-  })
-
   return (
     <LazyLoad
       tag="section"
       hidden={false}
-      ref={(el) => component = el}>
     >
       <Widget>
         <aside>

@@ -25,7 +25,6 @@ const LazyLoad = (props) => {
     <Element
       className={classes}
     >
-      THIS IS A LAZY LOAD COMPONENT
       {children}
     </Element>
   );

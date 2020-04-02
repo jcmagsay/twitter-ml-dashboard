@@ -18,6 +18,7 @@ import IconTypes from '../../atoms/icon/iconTypes';
 
 // partials
 import Overview from './partial/overview';
+import WordCloud from './partial/wordcloud/wordcloud';
 
 const getData = () => {
   const data = getDisastersData();
@@ -110,6 +111,7 @@ const Home = (props) => {
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
+      <WordCloud />
       <Overview
         dataSet={dataSet}
         visibility={visibility}
