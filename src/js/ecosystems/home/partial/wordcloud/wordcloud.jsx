@@ -11,6 +11,59 @@ import getDisasterWords from '../../../../functions/getDisasterWords.function';
 // styles
 import './wordcloud.scss';
 
+const negativeColors = [
+  '#FFEBEE',
+  '#F44336',
+  '#D50000',
+  '#B71C1C',
+  '#EC407A',
+  '#ef6c00',
+  '#fb8c00',
+  '#ff6d00',
+  '#ffff00',
+  '#ffd600',
+];
+
+const positiveColors = [
+  '#1b5e20',
+  '#b9f6ca',
+  '#00e676',
+  '#00bcd4',
+  '#18ffff',
+  '#8bc34a',
+  '#1976d2',
+  '#2962ff',
+  '#e8eaf6',
+  '#b39ddb',
+];
+
+const getTruthyOrFalsey = () => {
+  return !Math.round(Math.random());
+};
+
+const getRandomNumber = (isPositive) => {
+  return isPositive
+    ? Number(Math.random(1) * 250).toPrecision(4)
+    : Number(Math.random(1) * 250).toPrecision(4) * -1;
+};
+
+const getRandomDegree = (isPositive) => {
+  const multiplier = isPositive ? 1 : -1;
+  return multiplier * Number(Math.random(180) * 100).toPrecision(4);
+};
+
+const getRandomColor = (isPositive) => {
+  const colorArray = isPositive
+    ? positiveColors
+    : negativeColors;
+
+  return colorArray[Math.floor(Math.random() * positiveColors.length)];
+};
+
+const getHash = () => {
+  return Math.random().toString(36).substring(7);
+};
+
 const getData = () => {
   const data = getDisasterWords();
 
@@ -21,62 +74,41 @@ const getData = () => {
   }
 };
 
-const parseWords = (wordMap, isPositive = false) => {
-  const words = [];
+const parseWords = (wordArray, isPositive = false) => {
+  if (!wordArray) return <div/>;
 
-  for (const word of wordMap) {
-    const isPositiveX = !Math.round(Math.random());
-    const isPositiveY = !Math.round(Math.random());
-    const x = isPositiveX
-      ? Number(Math.random(1) * 250).toPrecision(4)
-      : Number(Math.random(1) * 250).toPrecision(4) * -1;
-    const y = isPositiveY
-      ? Number(Math.random(1) * 250).toPrecision(4)
-      : Number(Math.random(1) * 250).toPrecision(4) * -1
-    const degree = Number(Math.random(180) * 100).toPrecision(4);
+  return wordArray.map((wordObj) => {
+    // setup for text node
+    const isPositiveX = getTruthyOrFalsey();
+    const isPositiveY = getTruthyOrFalsey();
+    const x = getRandomNumber(isPositiveX);
+    const y = getRandomNumber(isPositiveY);
+    const degree = getRandomDegree(getTruthyOrFalsey());
+    const randomColor = getRandomColor(isPositive);
+    const hash = getHash();
 
-    var negativeColors = [
-      '#FFEBEE',
-      '#F44336',
-      '#D50000',
-      '#B71C1C',
-      '#EC407A',
-      '#ef6c00',
-      '#fb8c00',
-      '#ff6d00',
-      '#ffff00',
-      '#ffd600',
-    ];
-    var positiveColors = [
-      '#1b5e20',
-      '#b9f6ca',
-      '#00e676',
-      '#00bcd4',
-      '#18ffff',
-      '#8bc34a',
-      '#1976d2',
-      '#2962ff',
-      '#e8eaf6',
-      '#b39ddb',
-    ];
-
-    var randomColor = isPositive
-      ? positiveColors[Math.floor(Math.random() * positiveColors.length)]
-      : negativeColors[Math.floor(Math.random() * negativeColors.length)];
-
-    words.push(
+    return (
       <text
         fill={randomColor}
-        key={word[0]}
+        key={`${wordObj.text}-${hash}`}
         className="wordcloud-text"
         textAnchor="middle"
         transform={`translate(${x}, ${y}) rotate(${degree})`}
       >
-        {word[0]}
+        {wordObj.text}
       </text>
     );
-  }
-  return words;
+  });
+};
+
+const transformMapToArray = (map, limit = 5000) => {
+  const array = new Array();
+
+  map.forEach((value, key, map) => {
+    array.push(value);
+  });
+
+  return array.slice(0, limit);
 };
 
 const renderCloud = (title, data) => {
@@ -95,12 +127,13 @@ const renderCloud = (title, data) => {
 const WordCloud = (props) => {
   const dataMap = getData();
 
-  const disasterData = parseWords(dataMap.uniqueDisasterWords);
-  console.log({ disasterData})
+  const disastersArray = transformMapToArray(dataMap.uniqueDisasterWords);
+  const nonDisastersArray = transformMapToArray(dataMap.uniqueDisasterWords);
+  console.log({ disastersArray, nonDisastersArray });
   return (
     <section>
-      {renderCloud('Disaster Words', parseWords(dataMap.uniqueDisasterWords))}
-      {renderCloud('Non-Disaster Words', parseWords(dataMap.uniqueNonDisasterWords, true))}
+      {renderCloud('Disaster Words', parseWords(disastersArray))}
+      {renderCloud('Non-Disaster Words', parseWords(nonDisastersArray, true))}
     </section>
   );
 };
