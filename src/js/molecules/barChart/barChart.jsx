@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'britecharts-react';
 
-import { barChart } from 'barchart.scss';
+require('./barChart.scss');
 
 const generateData = (data) => {
   const {
