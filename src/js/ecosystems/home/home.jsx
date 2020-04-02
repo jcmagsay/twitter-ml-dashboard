@@ -111,7 +111,6 @@ const Home = (props) => {
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
-      <WordCloud />
       <Overview
         dataSet={dataSet}
         visibility={visibility}
@@ -125,6 +124,7 @@ const Home = (props) => {
       <section>
         {getDisastersTotals()}
       </section>
+      <WordCloud />
     </Fragment>
   );
 };
