@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 // modules/components
 import { calculatePercentage } from '../../functions/calculatePercentage.function';
 import { getDisastersData } from '../../functions/getDisastersData';
+import { getFalseData } from '../../functions/getFalseData';
 import { getUniqueDisastersData } from '../../functions/getUniqueDisastersData';
 import { getTotalDisasters } from '../../functions/getTotalDisasters';
 import Radial from '../../molecules/radial/radial';
@@ -21,7 +22,7 @@ import DonutWidget from './partial/donutWidget/donutWidget';
 //styles
 require('./home.scss');
 
-const getData = () => {
+const getDataDisasters = () => {
   const data = getDisastersData();
   const disasters = data.disasters;
   const nonDisasters = data.tweets - data.disasters;
@@ -107,13 +108,15 @@ const Home = (props) => {
     updateVisibility,
   } = props;
 
-  const dataSet = getData();
+  const dataSetDisasterNumbers = getDataDisasters();
+  const dataSetFalseNumbers = getFalseData();
 
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
       <Overview
-        dataSet={dataSet}
+        dataSetDisasterNumbers={dataSetDisasterNumbers}
+        dataSetFalseNumbers={dataSetFalseNumbers}
         visibility={visibility}
         callback={updateVisibility}
         {...props}

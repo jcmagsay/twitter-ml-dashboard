@@ -16,9 +16,21 @@ const isInViewport = (component, offset = 0) => {
   return (top + offset) >= 0 && (top - offset) <= window.innerHeight;
 };
 
+const falseChartColorSchema =
+[
+  '#CF2E14',
+  '#091629',
+  '#045D56',
+  '#FF6859', 
+  '#FFCF44',
+  '#DF0000',
+  '#72DEFF',
+];
+
 const Overview = (props) => {
   const {
-    dataSet,
+    dataSetDisasterNumbers,
+    dataSetFalseNumbers,
     visibility,
     callback,
   } = props;
@@ -35,7 +47,7 @@ const Overview = (props) => {
             header="Overview"
             iconType={IconTypes.data}
           />
-          <BarChart data={dataSet} />
+          <BarChart data={dataSetDisasterNumbers} />
         </aside>
         <aside className="widget_flex">
           <div>
@@ -46,7 +58,7 @@ const Overview = (props) => {
             />
             <Radial
               percent={
-                calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
+                calculatePercentage(dataSetDisasterNumbers.nonDisasters, dataSetDisasterNumbers.tweets)
               }
             />
           </div>
@@ -58,10 +70,18 @@ const Overview = (props) => {
             />
             <Radial
               percent={
-                calculatePercentage(dataSet.disasters, dataSet.tweets)
+                calculatePercentage(dataSetDisasterNumbers.disasters, dataSetDisasterNumbers.tweets)
               }
             />
           </div>
+        </aside>
+        <aside>
+          <Stats
+            color="green"
+            header="Overview"
+            iconType={IconTypes.data}
+          />
+          <BarChart data={dataSetFalseNumbers} colorSchema= {falseChartColorSchema} />
         </aside>
       </Widget>
     </LazyLoad>

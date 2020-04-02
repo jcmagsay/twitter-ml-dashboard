@@ -17,9 +17,20 @@ const generateData = (data) => {
   });
 };
 
+const defaultColorSchema =
+[
+  '#B15DFF',
+  '#1EB980',
+  '#045D56',
+  '#FF6859', 
+  '#FFCF44',
+  '#DF0000',
+  '#72DEFF',
+];
 const BarChart = (props) => {
   const {
     data,
+    colorSchema=defaultColorSchema
   } = props;
 
   const chartData = generateData(data);
@@ -27,15 +38,7 @@ const BarChart = (props) => {
   return (
     <Bar
       data={chartData}
-      colorSchema={[
-        '#B15DFF',
-        '#1EB980',
-        '#045D56',
-        '#FF6859',
-        '#FFCF44',
-        '#DF0000',
-        '#72DEFF',
-      ]}
+      colorSchema={colorSchema}
       enableLabels
       labelsNumberFormat="1"
       isAnimated
