@@ -1,8 +1,9 @@
 // npm packages
-import React, { memo, Fragment } from 'react';
+import React, { memo } from 'react';
 
 // modules
 import Text from '../../../../atoms/text/text';
+import Widget from '../../../../atoms/widget/widget';
 
 // functions
 import getDisasterWords from '../../../../functions/getDisasterWords.function';
@@ -80,14 +81,14 @@ const parseWords = (wordMap, isPositive = false) => {
 
 const renderCloud = (title, data) => {
   return (
-    <Fragment>
+    <Widget>
       <Text size="24" tag="h2">{title}</Text>
-      <svg className="wordcloud" width="90%" height="750" viewBox="0 0 200 200">
+      <svg className="wordcloud" width="100%" height="750" viewBox="0 0 200 200">
         <g width="1000" height="750">
           {data}
         </g>
       </svg>
-    </Fragment>
+    </Widget>
   )
 };
 
