@@ -1,24 +1,30 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import cc from 'classcat';
+
+import './lazyLoad.scss';
 
 const LazyLoad = (props) => {
   const {
     children,
-    hidden = true,
-    tag = div,
+    hidden,
+    tag,
+    ...rest
   } = props;
 
   const classes = cc([
     'lazyLoad',
     {
-      'lazyLoad_hidden': hidden,
+      'lazyLoad_appear': !hidden,
     },
   ]);
 
-  const Element = tag;
+  const Element = tag || "div";
+  let component;
 
   return (
-    <Element className={classes}>
+    <Element
+      className={classes}
+    >
       THIS IS A LAZY LOAD COMPONENT
       {children}
     </Element>

@@ -1,19 +1,23 @@
 //styles
 require('./scss/home.scss');
 
-// modules/components
+// npm packages
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux'
+
+// modules/components
 import { calculatePercentage } from '../../functions/calculatePercentage.function';
 import { getDisastersData } from '../../functions/getDisastersData';
 import { getUniqueDisastersData } from '../../functions/getUniqueDisastersData';
 import { getTotalDisasters } from '../../functions/getTotalDisasters';
-import BarChart from '../../molecules/barChart/barChart';
 import Radial from '../../molecules/radial/radial';
 import Stats from '../../organisms/stats/stats';
 import Text from '../../atoms/text/text';
 import Widget from '../../atoms/widget/widget';
 import IconTypes from '../../atoms/icon/iconTypes';
-import LazyLoad from '../../atoms/lazyLoad/lazyLoad';
+
+// partials
+import Overview from './partial/overview';
 
 const getData = () => {
   const data = getDisastersData();
@@ -25,49 +29,6 @@ const getData = () => {
     disasters,
     nonDisasters,
   }
-};
-
-const getOverviewWidget = (props, dataSet) => {
-  return (
-    <LazyLoad tag="section">
-      <Widget>
-        <aside>
-          <Stats
-            color="green"
-            header="Overview"
-            iconType={IconTypes.data}
-          />
-          <BarChart data={dataSet} />
-        </aside>
-        <aside className="widget_flex">
-          <div>
-            <Stats
-              color="yellow"
-              header="Non-Disasters"
-              iconType={IconTypes.nonDisaster}
-            />
-            <Radial
-              percent={
-                calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
-              }
-            />
-          </div>
-          <div>
-            <Stats
-              color="red"
-              header="Disasters"
-              iconType={IconTypes.disaster}
-            />
-            <Radial
-              percent={
-                calculatePercentage(dataSet.disasters, dataSet.tweets)
-              }
-            />
-          </div>
-        </aside>
-      </Widget>
-    </LazyLoad>
-  );
 };
 
 const getUniqueDisastersText = () => {
@@ -139,14 +100,22 @@ const getDisastersTotals = () => {
 };
 
 const Home = (props) => {
-  const dataSet = getData();
+  const {
+    visibility,
+    updateVisibility,
+  } = props;
 
-  console.log("HOME COMPONENT", { props });
+  const dataSet = getData();
 
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
-      {getOverviewWidget(props, dataSet)}
+      <Overview
+        dataSet={dataSet}
+        visibility={visibility}
+        callback={updateVisibility}
+        {...props}
+      />
       <Widget>
         There is currently an anomaly with the data, specifically tornadoes.
         <h2>{getUniqueDisastersText()}</h2>
@@ -158,4 +127,19 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+const mapStateToProps = state => ({
+  ...state,
+  visibility: true,
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return ({
+    updateVisibility(visibility) {
+    },
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);
