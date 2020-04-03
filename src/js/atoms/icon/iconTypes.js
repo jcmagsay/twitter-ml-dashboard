@@ -8,6 +8,7 @@ const IconTypes = {
   nonDisaster: 'emoticon-happy-outline',
   tornado: 'weather-tornado',
   water: 'water',
+  words: 'file-word-box',
 };
 
 export default IconTypes;

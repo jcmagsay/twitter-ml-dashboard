@@ -4,6 +4,10 @@ import React, { memo } from 'react';
 // modules
 import Text from '../../../../atoms/text/text';
 import Widget from '../../../../atoms/widget/widget';
+import Copy from '../../../../molecules/copy/copy';
+import Stats from '../../../../organisms/stats/stats';
+import IconTypes from '../../../../atoms/icon/iconTypes';
+
 
 // functions
 import getDisasterWords from '../../../../functions/getDisasterWords.function';
@@ -111,10 +115,14 @@ const transformMapToArray = (map, limit = 5000) => {
   return array.slice(0, limit);
 };
 
-const renderCloud = (title, data) => {
+const renderCloud = (title, data, color) => {
   return (
     <Widget>
-      <Text size="24" tag="h2">{title}</Text>
+      <Stats
+        color={color}
+        header={title}
+        iconType={IconTypes.words}
+      />
       <svg className="wordcloud" width="100%" height="750" viewBox="0 0 200 200">
         <g width="1000" height="750">
           {data}
@@ -132,8 +140,8 @@ const WordCloud = (props) => {
   console.log({ disastersArray, nonDisastersArray });
   return (
     <section>
-      {renderCloud('Disaster Words', parseWords(disastersArray))}
-      {renderCloud('Non-Disaster Words', parseWords(nonDisastersArray, true))}
+      {renderCloud('Disaster Words', parseWords(disastersArray), "yellow")}
+      {renderCloud('Non-Disaster Words', parseWords(nonDisastersArray, true, "blue"))}
     </section>
   );
 };

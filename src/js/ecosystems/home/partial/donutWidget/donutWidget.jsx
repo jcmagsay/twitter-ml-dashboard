@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import Widget from '../../../../atoms/widget/widget';
-import Text from '../../../../atoms/text/text';
 import Copy from '../../../../molecules/copy/copy';
 import DonutChart from '../../../../molecules/donutChart/donutChart';
 import Stats from '../../../../organisms/stats/stats';
@@ -48,7 +47,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={data}
-          width="500"
+          width="300"
         />
       </Copy>
     </Widget>
