@@ -24,7 +24,7 @@ const getDisastersTotals = () => {
   return (
     <section>
       <Widget>
-        <aside className="flex flex--2">
+        <aside className="flex flex--column">
           <div className="pad--48-r">
             <Stats
               color="orange"
