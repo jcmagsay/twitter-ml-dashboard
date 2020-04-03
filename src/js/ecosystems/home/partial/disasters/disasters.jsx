@@ -83,7 +83,7 @@ const Disasters = (props) => {
       <Copy
         description="These are highlights of the percentages of each disaster within the tweets overall"
         iconType={IconTypes.donutChart}
-        title={"Some interesting data"}
+        title={"Disasters as Percents"}
       >
         {getDisastersTotals()}
       </Copy>
