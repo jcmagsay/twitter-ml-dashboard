@@ -53,7 +53,7 @@ const generateDataUrl = (dataUrl) => {
 const donutTitleUrl = "HAS URL";
 const donutDescriptionUrl = "Portions of all tweets that have URLs";
 
-// 
+//
 const generateDataUrlDisaster = (dataUrlDisaster) => {
   return [
     {
@@ -235,7 +235,7 @@ const donutDescriptionPunctuationDisaster = "Portions of Disaster Tweets that ha
 const donutTitlePunctuationNonDisaster = "HAS Punctuation - NonDisaster";
 const donutDescriptionPunctuationNonDisaster = "Portions of NonDisaster Tweets that have Punctuation";
 
-// 
+//
 const DonutWidget = (props) => {
   const data = generateData();
   const dataUrl = generateDataUrl();
@@ -258,16 +258,6 @@ const DonutWidget = (props) => {
         header="Donut Data"
         iconType={IconTypes.data}
       />
-      <Copy
-        description={firstDonutDescription}
-        iconType={IconTypes.donutChart}
-        title={firstDonutTitle}
-      >
-        <DonutChart
-          data={data}
-          width="300"
-        />
-      </Copy>
 
       <Copy
         description={donutDescriptionUrl}
@@ -276,7 +266,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrl}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -286,7 +276,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrlDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -296,7 +286,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrlNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
 
@@ -309,7 +299,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmoji}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -319,7 +309,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmojiDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -329,7 +319,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmojiNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
 
@@ -342,7 +332,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuation}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -352,7 +342,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuationDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -362,7 +352,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuationNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
     </Widget>
