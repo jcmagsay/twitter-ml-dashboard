@@ -1,0 +1,105 @@
+@import 'mq';
+@import 'responsive';
+
+@mixin padding($size, $resolution: '') {
+  $res: '';
+
+  @if ($resolution != '') {
+    $res: '-#{$resolution}';
+  }
+
+  .pad--#{$size} {
+    @if ($res != '') {
+
+      &#{$res} {
+        padding: #{$size}px;
+      }
+    }
+
+    @else {
+      padding: #{$size}px;
+    }
+
+    &-b#{$res} {
+      padding-bottom: #{$size}px;
+    }
+
+    &-l#{$res} {
+      padding-left: #{$size}px;
+    }
+
+    &-r#{$res} {
+      padding-right: #{$size}px;
+    }
+
+    &-t#{$res} {
+      padding-top: #{$size}px;
+    }
+
+    &-bt#{$res} {
+      padding-bottom: #{$size}px;
+      padding-top: #{$size}px;
+    }
+
+    &-lr#{$res} {
+      padding-left: #{$size}px;
+      padding-right: #{$size}px;
+    }
+
+    &-blr#{$res} {
+      padding-bottom: #{$size}px;
+      padding-left: #{$size}px;
+      padding-right: #{$size}px;
+    }
+  }
+}
+
+@include padding(0);
+@include padding(5);
+@include padding(8);
+@include padding(12);
+@include padding(14);
+@include padding(15);
+@include padding(16);
+@include padding(24);
+@include padding(28);
+@include padding(32);
+@include padding(34);
+@include padding(40);
+@include padding(48);
+@include padding(60);
+@include padding(70);
+@include padding(80);
+@include padding(100);
+@include padding(120);
+@include padding(130);
+@include padding(135);
+
+@include mq($M) {
+  @include padding(0, 'md');
+  @include padding(4, 'md');
+  @include padding(8, 'md');
+  @include padding(16, 'md');
+  @include padding(24, 'md');
+  @include padding(32, 'md');
+  @include padding(40, 'md');
+  @include padding(100, 'md');
+  @include padding(120, 'md');
+  @include padding(130, 'md');
+}
+
+@include mq($L) {
+  @include padding(0, 'lg');
+  @include padding(8, 'lg');
+  @include padding(24, 'lg');
+  @include padding(32, 'lg');
+  @include padding(40, 'lg');
+  @include padding(60, 'lg');
+  @include padding(80, 'lg');
+  @include padding(120, 'lg');
+}
+
+@include mq($XL) {
+  @include padding(0, 'xl');
+  @include padding(350, 'xl');
+}

@@ -112,7 +112,13 @@ const Home = (props) => {
 
   return (
     <Fragment>
-      <Text size="34" tag="h1">Twitter ML Dashboard</Text>
+      <Text
+        centered
+        size="34"
+        tag="h1"
+      >
+        Twitter ML Dashboard
+      </Text>
       <Overview
         dataSetDisasterNumbers={dataSetDisasterNumbers}
         visibility={visibility}

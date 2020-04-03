@@ -1,0 +1,105 @@
+@import 'mq';
+@import 'responsive';
+
+@mixin margin($size, $resolution: '') {
+  $res: '';
+
+  @if ($resolution != '') {
+    $res: '-#{$resolution}';
+  }
+
+  .mar--#{$size} {
+    @if ($res != '') {
+
+      &#{$res} {
+        margin: #{$size}px;
+      }
+    }
+
+    @else {
+      margin: #{$size}px;
+    }
+
+    &-b#{$res} {
+      margin-bottom: #{$size}px;
+    }
+
+    &-l#{$res} {
+      margin-left: #{$size}px;
+    }
+
+    &-r#{$res} {
+      margin-right: #{$size}px;
+    }
+
+    &-t#{$res} {
+      margin-top: #{$size}px;
+    }
+
+    &-bt#{$res} {
+      margin-bottom: #{$size}px;
+      margin-top: #{$size}px;
+    }
+
+    &-lr#{$res} {
+      margin-left: #{$size}px;
+      margin-right: #{$size}px;
+    }
+
+    &-blr#{$res} {
+      margin-bottom: #{$size}px;
+      margin-left: #{$size}px;
+      margin-right: #{$size}px;
+    }
+  }
+}
+
+@include margin(0);
+@include margin(5);
+@include margin(8);
+@include margin(12);
+@include margin(14);
+@include margin(15);
+@include margin(16);
+@include margin(24);
+@include margin(28);
+@include margin(32);
+@include margin(34);
+@include margin(40);
+@include margin(48);
+@include margin(60);
+@include margin(70);
+@include margin(80);
+@include margin(100);
+@include margin(120);
+@include margin(130);
+@include margin(135);
+
+@include mq($M) {
+  @include margin(0, 'md');
+  @include margin(4, 'md');
+  @include margin(8, 'md');
+  @include margin(16, 'md');
+  @include margin(24, 'md');
+  @include margin(32, 'md');
+  @include margin(40, 'md');
+  @include margin(100, 'md');
+  @include margin(120, 'md');
+  @include margin(130, 'md');
+}
+
+@include mq($L) {
+  @include margin(0, 'lg');
+  @include margin(8, 'lg');
+  @include margin(24, 'lg');
+  @include margin(32, 'lg');
+  @include margin(40, 'lg');
+  @include margin(60, 'lg');
+  @include margin(80, 'lg');
+  @include margin(120, 'lg');
+}
+
+@include mq($XL) {
+  @include margin(0, 'xl');
+  @include margin(350, 'xl');
+}

@@ -1,0 +1,136 @@
+@import 'mq';
+@import 'responsive';
+
+.flex {
+  display: flex;
+}
+
+/* ----------------------------
+ FLEX SIZES
+------------------------------ */
+
+@mixin flexSize($size, $resolution: '') {
+  @if ($resolution != '') {
+    $resolution: '-#{$resolution}';
+  }
+
+  .flex--#{$size}#{$resolution} {
+    flex: $size;
+    min-width: 0;
+  }
+}
+
+@include flexSize(1);
+@include flexSize(2);
+@include flexSize(3);
+@include flexSize(4);
+@include flexSize(5);
+@include flexSize(6);
+
+@include mq($M) {
+  @include flexSize(1, 'md');
+  @include flexSize(2, 'md');
+}
+
+@include mq($L) {
+  @include flexSize(1, 'lg');
+  @include flexSize(2, 'lg');
+}
+
+/* ----------------------------
+ FLEX COLUMNS
+------------------------------ */
+
+@mixin flexColumns($numCols, $resolution: '') {
+  @if ($resolution != '') {
+    $resolution: '-#{$resolution}';
+  }
+
+  .flex--cols-#{$numCols}#{$resolution} {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    > * {
+      display: inline-flex;
+      max-width: 100% / $numCols;
+      min-width: 100% / $numCols;
+    }
+  }
+}
+
+@include flexColumns(1);
+@include flexColumns(2);
+@include flexColumns(5);
+@include flexColumns(6);
+
+@include mq($M) {
+  @include flexColumns(2, 'md');
+  @include flexColumns(3, 'md');
+}
+
+@include mq($L) {
+  @include flexColumns(2, 'lg');
+  @include flexColumns(3, 'lg');
+  @include flexColumns(4, 'lg');
+}
+
+@include mq($XL) {
+  @include flexColumns(3, 'xlg');
+}
+
+/* ----------------------------
+ FLEX RULES
+------------------------------ */
+
+@mixin flexRule($modifier, $prop, $val, $isExtended: 'true') {
+
+  .flex--#{$modifier} {
+    @if ($isExtended != 'false') {
+      @extend .flex;
+    }
+    #{$prop}: $val;
+  }
+}
+
+@include flexRule('align-center', align-items, center); // .flex--align-center
+@include flexRule('align-center-mobile', align-items, center); // .flex--align-center-mobile
+@include flexRule('align-self-end', align-self, flex-end); // .flex--align-self-center
+@include flexRule('column', flex-direction, column); // .flex--column
+@include flexRule('column-mobile', flex-direction, column); // .flex--column-mobile
+@include flexRule('justify-end', justify-content, flex-end); // .flex--space-around
+@include flexRule('justify-center', justify-content, center); // .flex--justify-center
+@include flexRule('row', flex-direction, row); // .flex--row
+@include flexRule('space-around', justify-content, space-around); // .flex--space-around
+@include flexRule('space-between', justify-content, space-between); // .flex--space-between
+@include flexRule('space-between-mobile', justify-content, space-between); // .flex--space-between-mobile
+@include flexRule('col-reverse', flex-direction, column-reverse); // .flex--col-reverse
+@include flexRule('col-reverse-mobile', flex-direction, column-reverse); // .flex--col-reverse-mobile
+
+@include mq($M) {
+
+  .flex--md {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@include mq($M) {
+  @include flexRule('align-center-md', align-items, center, 'false'); // .flex--align-center-md
+  @include flexRule('align-center-mobile', align-items, normal, 'false'); // .flex--align-center-mobile
+  @include flexRule('column-mobile', flex-direction, row, 'false'); // .flex--column-mobile
+  @include flexRule('space-between-mobile', justify-content, normal, 'false'); // .flex--space-between-mobile
+  @include flexRule('row-wrap-md', flex-flow, row wrap, 'false'); // .flex--row-wrap-md
+  @include flexRule('col-reverse-mobile', flex-direction, row, 'false'); // .flex--col-reverse-mobile
+  @include flexRule('justify-end-md', justify-content, flex-end, 'false');  // .flex--justify-end-md
+  @include flexRule('row-reverse-md', flex-direction, row-reverse, 'false'); // .flex--row-reverse-md
+}
+
+@include mq($L) {
+  @include flexRule('align-flex-start-lg', align-items, flex-start, 'false'); // .flex--align-flex-start-lg
+  @include flexRule('row-reverse-lg', flex-direction, row-reverse, 'false'); // .flex--row-reverse-lg
+
+  .flex--lg {
+    display: flex;
+  }
+}

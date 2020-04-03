@@ -1,0 +1,59 @@
+@import '../../../css/color';
+
+@mixin iconSize($size, $heightWidth) {
+  $font: $size * 0.1;
+
+  &.icon--#{$size} {
+    font-size: #{$font}rem;
+    min-height: $heightWidth;
+    min-width: $heightWidth;
+  }
+}
+
+.icon {
+  padding: 0.8rem 1.2rem;
+}
+
+@include iconSize(10, 2.0rem);
+@include iconSize(12, 2.4rem);
+@include iconSize(13, 2.6rem);
+@include iconSize(15, 3.0rem);
+@include iconSize(17, 3.4rem);
+@include iconSize(21, 4.2rem);
+@include iconSize(24, 4.8rem);
+@include iconSize(34, 6.8rem);
+@include iconSize(45, 9.0rem);
+@include iconSize(56, 11.2rem);
+@include iconSize(72, 14.4rem);
+
+/* ------------------------------------
+ ICON COLORS
+--------------------------------------- */
+
+.icon--blue {
+  color: $COLOR_BLUE_SECONDARY;
+}
+
+.icon--green {
+  color: $COLOR_GREEN;
+}
+
+.icon--purple {
+  color: $COLOR_BLUE_PRIMARY;
+}
+
+.icon--orange {
+  color: $COLOR_RED_PRIMARY;
+}
+
+.icon--red {
+  color: $COLOR_RED;
+}
+
+.icon--teal {
+  color: $COLOR_TEAL;
+}
+
+.icon--yellow {
+  color: $COLOR_RED_SECONDARY;
+}

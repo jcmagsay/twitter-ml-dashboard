@@ -1,0 +1,13 @@
+/* stylelint-disable */
+// Breakpoints
+$breakpoint-s: 31em; // *16 = 496
+$breakpoint-m: 43em; // *16 = 688
+$breakpoint-l: 68em; // *16 = 1088
+$breakpoint-xl: 82em; // *16 = 1312
+
+// Media Queries
+$S: 'min-width:' + $breakpoint-s;
+$M: 'min-width:' + $breakpoint-m;
+$L: 'min-width:' + $breakpoint-l;
+$XL: 'min-width:' + $breakpoint-xl;
+/* stylelint-enable */
