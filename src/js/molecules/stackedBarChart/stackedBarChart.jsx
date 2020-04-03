@@ -32,7 +32,7 @@ const defaultColorSchema =
   '#1EB980',
   '#B15DFF',
   '#045D56',
-  '#FF6859', 
+  '#FF6859',
   '#FFCF44',
   '#DF0000',
   '#72DEFF',
@@ -41,7 +41,7 @@ const defaultColorSchema =
 const StackedBarChart = (props) => {
 
   return (
-    <StackedBar 
+    <StackedBar
       data={confusionMatrixData}
       colorSchema={defaultColorSchema}
       isAnimated
