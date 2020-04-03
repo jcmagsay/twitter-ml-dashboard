@@ -29,6 +29,8 @@ const handleMapping = (wordMap, word) => {
 };
 
 const getDisasterWords = () => {
+  let totalWords = 0;
+  let totalUniqueWords = 0;
   const disasterWords = new Set();
   const nonDisasterWords = new Set();
 
@@ -46,9 +48,17 @@ const getDisasterWords = () => {
         disasterWords.add(word);
         handleMapping(uniqueDisasterWords, word);
       } else {
+        totalUniqueWords++;
+        console.log("ADDING UNIQUE WORD")
         nonDisasterWords.add(word);
         handleMapping(uniqueNonDisasterWords, word);
       }
+      totalWords++;
+    });
+
+    console.log({
+      totalWords,
+      totalUniqueWords,
     });
   });
 

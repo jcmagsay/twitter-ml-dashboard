@@ -89,11 +89,16 @@ const parseWords = (wordArray, isPositive = false) => {
 
     return (
       <text
+        data-metrics={JSON.stringify(wordObj)}
         fill={randomColor}
         key={`${wordObj.text}-${hash}`}
         className="wordcloud-text"
         textAnchor="middle"
         transform={`translate(${x}, ${y}) rotate(${degree})`}
+        onMouseOver={(e, b, c)=> {
+          const metrics = e.currentTarget.attributes["data-metrics"].value;
+          console.log( JSON.parse(metrics) );
+        }}
       >
         {wordObj.text}
       </text>

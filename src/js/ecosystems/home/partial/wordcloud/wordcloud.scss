@@ -1,19 +1,80 @@
+@keyframes loadWords {
+
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0.05;
+  }
+
+  10% {
+    display: block;
+    opacity: 0.10;
+  }
+
+  20% {
+    opacity: 0.20;
+  }
+
+  30% {
+    opacity: 0.30;
+  }
+
+  40% {
+    opacity: 0.40;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  60% {
+    opacity: 0.6;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  90% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
 .wordcloud {
 
-  display: inline;
+  display: block;
   font-size: 0.5rem;
+  position: relative;
 
-  > g {
-    display: inline;
+  g {
+
+    display: block;
+    position: relative;
     transform: translate(50%);
     transform-origin: 0 0;
 
     > text {
+
+      animation: loadWords 2s ease-in-out;
+      display: block;
       font-family: Impact;
+      position: relative;
       text-anchor: middle;
-      transition: transform 500ms ease;
+
     }
 
   }
-
 }
