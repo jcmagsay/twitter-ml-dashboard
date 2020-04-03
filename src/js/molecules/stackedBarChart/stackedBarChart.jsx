@@ -5,6 +5,16 @@ require('./stackedBarChart.scss');
 
  const confusionMatrixData = [
     {
+      name: 'Negatives',
+      stack: 'Bottom',
+      value: 504
+    },
+    {
+      name: 'Negatives',
+      stack: 'Middle',
+      value: 70
+    },
+    {
       name: 'Positives',
       stack: 'Bottom',
       value: 2158
@@ -14,23 +24,13 @@ require('./stackedBarChart.scss');
       stack: 'Middle',
       value: 72
     },
-    {
-      name: 'Negatives',
-      stack: 'Bottom',
-      value: 70
-    },
-    {
-      name: 'Negatives',
-      stack: 'Middle',
-      value: 504
-    }
 ];
 
 
 const defaultColorSchema =
 [
-  '#B15DFF',
   '#1EB980',
+  '#B15DFF',
   '#045D56',
   '#FF6859', 
   '#FFCF44',
@@ -43,7 +43,7 @@ const StackedBarChart = (props) => {
   return (
     <StackedBar 
       data={confusionMatrixData}
-      // colorSchema={colorSchema}
+      colorSchema={defaultColorSchema}
       isAnimated
       height={200}
       width={600}

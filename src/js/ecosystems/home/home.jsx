@@ -109,20 +109,12 @@ const Home = (props) => {
   } = props;
 
   const dataSetDisasterNumbers = getDataDisasters();
-  // const dataSetFalseNumbers = getFalseData();
-  // same as this, since I implemented the new 
-  const dataSetFalseNumbers = { 
-    falseNegaties: 78,
-    falsePositives: 70
-  };
-  
 
   return (
     <Fragment>
       <Text size="34" tag="h1">Twitter ML Dashboard</Text>
       <Overview
         dataSetDisasterNumbers={dataSetDisasterNumbers}
-        dataSetFalseNumbers={dataSetFalseNumbers}
         visibility={visibility}
         callback={updateVisibility}
         {...props}

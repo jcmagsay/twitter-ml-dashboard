@@ -17,22 +17,9 @@ const isInViewport = (component, offset = 0) => {
   return (top + offset) >= 0 && (top - offset) <= window.innerHeight;
 };
 
-const falseChartColorSchema =
-[
-  '#CF2E14',
-  '#091629',
-  '#045D56',
-  '#FF6859', 
-  '#FFCF44',
-  '#DF0000',
-  '#72DEFF',
-];
-
 const Overview = (props) => {
   const {
     dataSetDisasterNumbers,
-    dataSetFalseNumbers,
-    dataSetConfusionMatrixNumbers,
     visibility,
     callback,
   } = props;
@@ -78,7 +65,6 @@ const Overview = (props) => {
           </div>
         </aside>
         <aside>
-          {/* <BarChart data={dataSetFalseNumbers} colorSchema= {falseChartColorSchema} /> */}
           <StackedBarChart />
         </aside>
       </Widget>
