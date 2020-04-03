@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 // modules/components
 import { calculatePercentage } from '../../../../functions/calculatePercentage.function';
 import BarChart from '../../../../molecules/barChart/barChart';
+import StackedBarChart from '../../../../molecules/stackedBarChart/stackedBarChart';
 import Radial from '../../../../molecules/radial/radial';
 import Stats from '../../../../organisms/stats/stats';
 import Widget from '../../../../atoms/widget/widget';
@@ -18,7 +19,7 @@ const isInViewport = (component, offset = 0) => {
 
 const Overview = (props) => {
   const {
-    dataSet,
+    dataSetDisasterNumbers,
     visibility,
     callback,
   } = props;
@@ -35,7 +36,7 @@ const Overview = (props) => {
             header="Overview"
             iconType={IconTypes.data}
           />
-          <BarChart data={dataSet} />
+          <BarChart data={dataSetDisasterNumbers} />
         </aside>
         <aside className="widget_flex">
           <div>
@@ -46,7 +47,7 @@ const Overview = (props) => {
             />
             <Radial
               percent={
-                calculatePercentage(dataSet.nonDisasters, dataSet.tweets)
+                calculatePercentage(dataSetDisasterNumbers.nonDisasters, dataSetDisasterNumbers.tweets)
               }
             />
           </div>
@@ -58,10 +59,13 @@ const Overview = (props) => {
             />
             <Radial
               percent={
-                calculatePercentage(dataSet.disasters, dataSet.tweets)
+                calculatePercentage(dataSetDisasterNumbers.disasters, dataSetDisasterNumbers.tweets)
               }
             />
           </div>
+        </aside>
+        <aside>
+          <StackedBarChart />
         </aside>
       </Widget>
     </LazyLoad>
