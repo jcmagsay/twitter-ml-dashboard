@@ -180,21 +180,13 @@ const generateDataPunctuation = (dataPunctuation) => {
   return [
     {
       quantity: 1260,
-<<<<<<< HEAD
-      percentage: 9,
-=======
       percentage: 91,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'No Punctuation',
       id: 'no-punc',
     },
     {
       quantity: 12760,
-<<<<<<< HEAD
-      percentage: 91,
-=======
       percentage: 9,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'has Punctuation',
       id: 'has-punc',
     },
@@ -222,11 +214,7 @@ const generateDataPunctuationNonDisaster = (dataPunctuationNonDisaster) => {
   return [
     {
       quantity: 770,
-<<<<<<< HEAD
-      percentage: 7,
-=======
       percentage: 17,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'No Punctuation',
       id: 'no-punc',
     },
@@ -375,7 +363,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrl}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -385,7 +373,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrlDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -395,7 +383,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataUrlNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
 
@@ -408,7 +396,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmoji}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -418,7 +406,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmojiDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -428,7 +416,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataEmojiNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
 
@@ -441,7 +429,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuation}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -451,7 +439,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuationDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
       <Copy
@@ -461,7 +449,7 @@ const DonutWidget = (props) => {
       >
         <DonutChart
           data={dataPunctuationNonDisaster}
-          width="500"
+          width="300"
         />
       </Copy>
     </Widget>
