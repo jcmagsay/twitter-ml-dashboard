@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 import Widget from '../../../../atoms/widget/widget';
 import Text from '../../../../atoms/text/text';
+import Copy from '../../../../molecules/copy/copy';
 import DonutChart from '../../../../molecules/donutChart/donutChart';
+import Stats from '../../../../organisms/stats/stats';
+import IconTypes from '../../../../atoms/icon/iconTypes';
 
 const generateData = (data) => {
   return [
@@ -26,15 +29,28 @@ const generateData = (data) => {
   ];
 };
 
+const firstDonutTitle = "DONUT DATA";
+const firstDonutDescription = "DONUT DESCRIPTION";
+
 const DonutWidget = (props) => {
   const data = generateData();
   return (
     <Widget>
-      <Text size="24" tag="h2">Donuts of Data</Text>
-      <DonutChart
-        data={data}
-        width="500"
+      <Stats
+        color="green"
+        header="Donut Data"
+        iconType={IconTypes.data}
       />
+      <Copy
+        description={firstDonutDescription}
+        iconType={IconTypes.donutChart}
+        title={firstDonutTitle}
+      >
+        <DonutChart
+          data={data}
+          width="500"
+        />
+      </Copy>
     </Widget>
   );
 };

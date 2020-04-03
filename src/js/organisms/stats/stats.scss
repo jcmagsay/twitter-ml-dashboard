@@ -1,0 +1,25 @@
+.stats {
+  margin-bottom: 2.4rem;
+
+  .stats__heading {
+    padding-left: 2.4px;
+    margin-left: 2.4rem;
+    width: 100%;
+
+    &::after {
+      border-bottom: 2px solid rgba(255, 255, 255, .5);
+      content: ('');
+      display: block;
+      margin-bottom: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+  }
+
+  .stats__icon {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    display: inline-block;
+    width: inherit;
+  }
+}

@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react';
 import cc from 'classcat';
 
+// styles
+import './icon.scss';
+
 const Icon = (props) => {
   const {
     iconType,
+    color,
+    size = '12',
   } = props;
 
   if (!iconType) {
@@ -11,9 +16,12 @@ const Icon = (props) => {
   }
 
   const classes = cc([
+    'icon',
     'mdi',
     {
       [`mdi-${iconType}`]: iconType,
+      [`icon--${size}`]: size,
+      [`icon--${color}`]: color,
     },
   ]);
 
