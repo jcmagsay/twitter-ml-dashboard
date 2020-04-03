@@ -109,7 +109,13 @@ const Home = (props) => {
   } = props;
 
   const dataSetDisasterNumbers = getDataDisasters();
-  const dataSetFalseNumbers = getFalseData();
+  // const dataSetFalseNumbers = getFalseData();
+  // same as this, since I implemented the new 
+  const dataSetFalseNumbers = { 
+    falseNegaties: 78,
+    falsePositives: 70
+  };
+  
 
   return (
     <Fragment>

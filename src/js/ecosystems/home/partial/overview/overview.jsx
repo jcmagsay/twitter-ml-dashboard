@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 // modules/components
 import { calculatePercentage } from '../../../../functions/calculatePercentage.function';
 import BarChart from '../../../../molecules/barChart/barChart';
+import StackedBarChart from '../../../../molecules/stackedBarChart/stackedBarChart';
 import Radial from '../../../../molecules/radial/radial';
 import Stats from '../../../../organisms/stats/stats';
 import Widget from '../../../../atoms/widget/widget';
@@ -31,6 +32,7 @@ const Overview = (props) => {
   const {
     dataSetDisasterNumbers,
     dataSetFalseNumbers,
+    dataSetConfusionMatrixNumbers,
     visibility,
     callback,
   } = props;
@@ -76,12 +78,8 @@ const Overview = (props) => {
           </div>
         </aside>
         <aside>
-          <Stats
-            color="green"
-            header="Overview"
-            iconType={IconTypes.data}
-          />
-          <BarChart data={dataSetFalseNumbers} colorSchema= {falseChartColorSchema} />
+          {/* <BarChart data={dataSetFalseNumbers} colorSchema= {falseChartColorSchema} /> */}
+          <StackedBarChart />
         </aside>
       </Widget>
     </LazyLoad>
