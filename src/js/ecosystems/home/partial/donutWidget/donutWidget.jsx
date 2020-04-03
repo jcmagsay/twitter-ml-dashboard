@@ -29,6 +29,7 @@ const generateData = (data) => {
   ];
 };
 
+
 const firstDonutTitle = "DONUT DATA";
 const firstDonutDescription = "DONUT DESCRIPTION";
 
