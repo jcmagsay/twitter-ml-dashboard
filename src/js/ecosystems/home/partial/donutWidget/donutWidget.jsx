@@ -177,6 +177,65 @@ const donutDescriptionEmojiDisaster = "Portions of Disaster Tweets that have Emo
 const donutTitleEmojiNonDisaster = "HAS Emoji - NonDisaster";
 const donutDescriptionEmojiNonDisaster = "Portions of NonDisaster Tweets that have Emojis";
 
+const generateDataPunctuation = (dataPunctuation) => {
+  return [
+    {
+      quantity: 1260,
+      percentage: 91,
+      name: 'No Punctuation',
+      id: 'no-punc',
+    },
+    {
+      quantity: 12760,
+      percentage: 9,
+      name: 'has Punctuation',
+      id: 'has-punc',
+    },
+  ];
+};
+
+const generateDataPunctuationDisaster = (dataPunctuationDisaster) => {
+  return [
+    {
+      quantity: 490,
+      percentage: 17,
+      name: 'No Punctuation',
+      id: 'no-punc',
+    },
+    {
+      quantity: 2330,
+      percentage: 83,
+      name: 'has Punctuation',
+      id: 'has-punc',
+    },
+  ];
+};
+
+const generateDataPunctuationNonDisaster = (dataPunctuationNonDisaster) => {
+  return [
+    {
+      quantity: 770,
+      percentage: 17,
+      name: 'No Punctuation',
+      id: 'no-punc',
+    },
+    {
+      quantity: 10430,
+      percentage: 93,
+
+      name: 'has Punctuation',
+      id: 'has-punc',
+    },
+  ];
+};
+
+const donutTitlePunctuation = "HAS Punctuation - All tweets";
+const donutDescriptionPunctuation = "Portion of all Tweets that have Punctuation";
+const donutTitlePunctuationDisaster = "HAS Punctuation - Disasters";
+const donutDescriptionPunctuationDisaster = "Portions of Disaster Tweets that have Punctuation";
+const donutTitlePunctuationNonDisaster = "HAS Punctuation - NonDisaster";
+const donutDescriptionPunctuationNonDisaster = "Portions of NonDisaster Tweets that have Punctuation";
+
 // 
 const DonutWidget = (props) => {
   const data = generateData();
@@ -187,6 +246,11 @@ const DonutWidget = (props) => {
   const dataEmoji = generateDataEmoji();
   const dataEmojiDisaster = generateDataEmojiDisaster();
   const dataEmojiNonDisaster = generateDataEmojiNonDisaster();
+
+
+  const dataPunctuation = generateDataPunctuation();
+  const dataPunctuationDisaster = generateDataPunctuationDisaster();
+  const dataPunctuationNonDisaster = generateDataPunctuationNonDisaster();
 
   return (
     <Widget>
@@ -270,6 +334,38 @@ const DonutWidget = (props) => {
         />
       </Copy>
 
+
+{/*  */}
+      <Copy
+        description={donutDescriptionPunctuation}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuation}
+      >
+        <DonutChart
+          data={dataPunctuation}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionPunctuationDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuationDisaster}
+      >
+        <DonutChart
+          data={dataPunctuationDisaster}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionPunctuationNonDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuationNonDisaster}
+      >
+        <DonutChart
+          data={dataPunctuationNonDisaster}
+          width="500"
+        />
+      </Copy>
     </Widget>
 
 
