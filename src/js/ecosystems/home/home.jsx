@@ -69,8 +69,8 @@ const Home = (props) => {
         {...props}
       />
       <DonutWidget/>
-      <Anomalies />
       <Disasters />
+      <Anomalies />
       <WordCloud />
     </Fragment>
   );
