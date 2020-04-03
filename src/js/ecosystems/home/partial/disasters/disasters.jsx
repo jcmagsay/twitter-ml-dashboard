@@ -28,7 +28,7 @@ const getDisastersTotals = () => {
           <div className="pad--48-r">
             <Copy
               color="orange"
-              description={`${roundedTornadoes}% total Fires`}
+              description={`${roundedFires}% total Fires`}
               iconType={IconTypes.fire}
               title="Fires"
             >
@@ -40,7 +40,7 @@ const getDisastersTotals = () => {
           <div className="pad--48-r">
             <Copy
               color="blue"
-              description={`${roundedTornadoes}% total Floods`}
+              description={`${roundedFloods}% total Floods`}
               iconType={IconTypes.water}
               title="Floods"
             >
@@ -52,7 +52,7 @@ const getDisastersTotals = () => {
           <div className="pad--48-r">
             <Copy
               color="purple"
-              description={`${roundedTornadoes}% total Hurricanes`}
+              description={`${roundedHurricanes}% total Hurricanes`}
               iconType={IconTypes.hurricane}
               title="Hurricanes"
             >
