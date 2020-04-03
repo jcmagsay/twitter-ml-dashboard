@@ -180,21 +180,13 @@ const generateDataPunctuation = (dataPunctuation) => {
   return [
     {
       quantity: 1260,
-<<<<<<< HEAD
       percentage: 9,
-=======
-      percentage: 91,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'No Punctuation',
       id: 'no-punc',
     },
     {
       quantity: 12760,
-<<<<<<< HEAD
       percentage: 91,
-=======
-      percentage: 9,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'has Punctuation',
       id: 'has-punc',
     },
@@ -222,11 +214,7 @@ const generateDataPunctuationNonDisaster = (dataPunctuationNonDisaster) => {
   return [
     {
       quantity: 770,
-<<<<<<< HEAD
       percentage: 7,
-=======
-      percentage: 17,
->>>>>>> 754c4e0f40111446ef609c58a63f3b4239e5cbea
       name: 'No Punctuation',
       id: 'no-punc',
     },
