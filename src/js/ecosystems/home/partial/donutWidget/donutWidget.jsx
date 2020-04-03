@@ -181,13 +181,13 @@ const generateDataPunctuation = (dataPunctuation) => {
   return [
     {
       quantity: 1260,
-      percentage: 91,
+      percentage: 9,
       name: 'No Punctuation',
       id: 'no-punc',
     },
     {
       quantity: 12760,
-      percentage: 9,
+      percentage: 91,
       name: 'has Punctuation',
       id: 'has-punc',
     },
@@ -215,7 +215,7 @@ const generateDataPunctuationNonDisaster = (dataPunctuationNonDisaster) => {
   return [
     {
       quantity: 770,
-      percentage: 17,
+      percentage: 7,
       name: 'No Punctuation',
       id: 'no-punc',
     },
