@@ -26,44 +26,51 @@ const getDisastersTotals = () => {
       <Widget>
         <aside className="flex flex--column">
           <div className="pad--48-r">
-            <Stats
+            <Copy
               color="orange"
-              header="Fires"
+              description={`${roundedTornadoes}% total Fires`}
               iconType={IconTypes.fire}
-            />
-            <Radial
-              percent={roundedFires}
-            />
+              title="Fires"
+            >
+              <Radial
+                percent={roundedFires}
+              />
+            </Copy>
           </div>
           <div className="pad--48-r">
-            <Stats
+            <Copy
               color="blue"
-              header="Floods"
+              description={`${roundedTornadoes}% total Floods`}
               iconType={IconTypes.water}
-            />
-            <Radial
-              percent={roundedFloods}
-            />
+              title="Floods"
+            >
+              <Radial
+                percent={roundedFloods}
+              />
+            </Copy>
           </div>
           <div className="pad--48-r">
-            <Stats
+            <Copy
               color="purple"
-              header="Hurricanes"
+              description={`${roundedTornadoes}% total Hurricanes`}
               iconType={IconTypes.hurricane}
-            />
-            <Radial
-              percent={roundedHurricanes}
-            />
+              title="Hurricanes"
+            >
+              <Radial
+                percent={roundedHurricanes}
+              />
+            </Copy>
           </div>
           <div className="pad--48-r">
-            <Stats
-              color
-              header="Tornadoes"
+            <Copy
+              description={`${roundedTornadoes}% total Tornadoes`}
               iconType={IconTypes.tornado}
-            />
-            <Radial
-              percent={roundedTornadoes}
-            />
+              title="Tornadoes"
+            >
+              <Radial
+                percent={roundedTornadoes}
+              />
+            </Copy>
           </div>
         </aside>
       </Widget>
