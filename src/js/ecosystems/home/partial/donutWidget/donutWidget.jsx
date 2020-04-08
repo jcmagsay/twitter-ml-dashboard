@@ -180,13 +180,13 @@ const generateDataPunctuation = (dataPunctuation) => {
   return [
     {
       quantity: 1260,
-      percentage: 91,
+      percentage: 9,
       name: 'No Punctuation',
       id: 'no-punc',
     },
     {
       quantity: 12760,
-      percentage: 9,
+      percentage: 91,
       name: 'has Punctuation',
       id: 'has-punc',
     },
@@ -214,7 +214,7 @@ const generateDataPunctuationNonDisaster = (dataPunctuationNonDisaster) => {
   return [
     {
       quantity: 770,
-      percentage: 17,
+      percentage: 7,
       name: 'No Punctuation',
       id: 'no-punc',
     },
@@ -450,6 +450,103 @@ const DonutWidget = (props) => {
         <DonutChart
           data={dataPunctuationNonDisaster}
           width="300"
+        />
+      </Copy>
+
+      <Copy
+        description={donutDescriptionUrl}
+        iconType={IconTypes.donutChart}
+        title={donutTitleUrl}
+      >
+        <DonutChart
+          data={dataUrl}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionUrlDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitleUrlDisaster}
+      >
+        <DonutChart
+          data={dataUrlDisaster}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionUrlNonDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitleUrlNonDisaster}
+      >
+        <DonutChart
+          data={dataUrlNonDisaster}
+          width="500"
+        />
+      </Copy>
+
+
+
+      <Copy
+        description={donutDescriptionEmoji}
+        iconType={IconTypes.donutChart}
+        title={donutTitleEmoji}
+      >
+        <DonutChart
+          data={dataEmoji}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionEmojiDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitleEmojiDisaster}
+      >
+        <DonutChart
+          data={dataEmojiDisaster}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionEmojiNonDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitleEmojiNonDisaster}
+      >
+        <DonutChart
+          data={dataEmojiNonDisaster}
+          width="500"
+        />
+      </Copy>
+
+
+{/*  */}
+      <Copy
+        description={donutDescriptionPunctuation}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuation}
+      >
+        <DonutChart
+          data={dataPunctuation}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionPunctuationDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuationDisaster}
+      >
+        <DonutChart
+          data={dataPunctuationDisaster}
+          width="500"
+        />
+      </Copy>
+      <Copy
+        description={donutDescriptionPunctuationNonDisaster}
+        iconType={IconTypes.donutChart}
+        title={donutTitlePunctuationNonDisaster}
+      >
+        <DonutChart
+          data={dataPunctuationNonDisaster}
+          width="500"
         />
       </Copy>
     </Widget>
